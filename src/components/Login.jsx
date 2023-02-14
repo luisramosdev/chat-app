@@ -3,7 +3,7 @@ import { supabase } from "../supabaseCliente";
 const Login = () => {
     const handleLogin = async () => {
         const { data, error } = await supabase.auth.signInWithOAuth({
-            provider: 'google',
+            provider: 'facebook',
         })
     }
 

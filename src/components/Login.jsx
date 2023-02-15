@@ -1,15 +1,22 @@
 import { supabase } from "../supabaseCliente";
 
 const Login = () => {
-    const handleLogin = async () => {
+    const handleLoginFacebook = async () => {
         const { data, error } = await supabase.auth.signInWithOAuth({
-            provider: 'google',
+            provider: 'facebook'
+        })
+    }
+    
+    const handleLoginGoogle = async () => {
+        const { data, error } = await supabase.auth.signInWithOAuth({
+            provider: 'google'
         })
     }
 
     return (
         <section className="login">
-            <button onClick={handleLogin}>Iniciar</button>
+            <button onClick={handleLoginFacebook}><i className="bi bi-facebook"></i> Iniciar con Facebook</button>
+            <button onClick={handleLoginGoogle}><i className="bi bi-google"></i> Iniciar con Google</button>
         </section>
     );
 }

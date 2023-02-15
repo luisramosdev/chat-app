@@ -11,6 +11,7 @@ const Messages = () => {
     const callSupabase = async () => {
         const {data} = await supabase.from("messages").select("*")
         setMessages(data)
+        // console.log(data)
     };
 
     useEffect(() => {
@@ -43,6 +44,7 @@ const Messages = () => {
                         message={item.content}
                         date={item.created_at}
                         email={item.email}
+                        name_user={item.name_user}
                         />
                     ))
                 }

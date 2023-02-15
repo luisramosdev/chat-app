@@ -35,14 +35,14 @@ const Header = () => {
                 <p className="logout" onClick={handleLogout}><Arrow/></p>
                 <img src={avatar} alt="" />
                 <p className="name">{user}
-                <span>online</span>
+                <span>En línea</span>
                 </p>
             </div>
             <p className="dots" onClick={handleDots}>
                 <Dots/>
             </p>
             <div className={`float-out ${open ? "open" : ""}`} onClick={handleLogout}>
-                Logout
+                Cerrar Sesión
             </div>
         </div>
     );

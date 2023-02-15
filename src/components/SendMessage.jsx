@@ -6,13 +6,15 @@ const SendMessage = ({ scroll }) => {
 
     const [newMessage, setNewMessage] = useState("")
     const [user, setUser] = useState()
+    const [userName, setUserName] = useState()
 
     const sendMessage = async e => {
         e.preventDefault();
         if(newMessage !== ""){
             const insert = await supabase.from("messages").insert({
                 content: newMessage,
-                email: user
+                email: user,
+                name_user: userName
             })
             setNewMessage("")
         }
@@ -22,6 +24,7 @@ const SendMessage = ({ scroll }) => {
     const getSession  = async () => {
         const { data } = await supabase.auth.getSession();
         setUser(data.session.user.email)
+        setUserName(data.session.user.user_metadata.name)
         // console.log(data)
     }
 

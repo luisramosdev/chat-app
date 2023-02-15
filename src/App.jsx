@@ -18,8 +18,11 @@ function App() {
 
   return (
     <div className="App">
-      <h1>WhatsApp Clone</h1>
-      <p>ReactJS & Supabase</p>
+      { session ? "" : 
+      <div>
+        <h1>WhatsApp Clone</h1>
+        <p>Creado por Luis Ramos</p>
+      </div> }
       { session ? <Messages/> : <Login/> }
     </div>
   )
